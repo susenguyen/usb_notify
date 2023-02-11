@@ -10,6 +10,11 @@ Then, an in-memory virtual machine can be started, with PCI passthrough (IOMMU &
 
 It will discard non block devices; i-e: USB network devices, keyboards or mice will not be detected.
 
+# Limitations
+Disabling is performed at the PCI address level, e-g: pci0000:00/0000:00:14.0.
+
+The purpose is to be able to start a VM with vfio enabled (PCI passthrough) to securely read the mass-storage device in the VM, which implies a granularity level of the iommu_group.
+
 # Actions
 
 ## Start the Executable
